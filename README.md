@@ -1,5 +1,5 @@
 # SaikoCTF-Badge-Unlocker
-Fully unlock the challenges for the SaikoCTF Badge
+Fully unlock the challenges for the SaikoCTF Badge given at ECSC 2024 @ Turin
 
 ---
 
