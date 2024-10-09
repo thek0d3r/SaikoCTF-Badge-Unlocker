@@ -28,14 +28,12 @@ ser.flush()
 
 time.sleep(1)
 
-# Open the file in write mode
 with open("badge.py", "w") as output_file:
     try:
-        # Read some lines to reach the interpreter prompt
         for _ in range(6):
             line = ser.readline().decode('utf-8')
-            print(line, end='')  # Optional: print to console
-            output_file.write(line.replace('\r\n', '\n'))  # Write to file with standardized line endings
+            print(line, end='')
+            output_file.write(line.replace('\r\n', '\n'))
 
         print("Python interpreter ready!")
 
@@ -49,14 +47,13 @@ with open("badge.py", "w") as output_file:
         ser.write(python_command)
         ser.flush()
 
-        # Read and write the response (contents of main.py) to the file
         while True:
             try:
                 line = ser.readline()
                 if line:
                     decoded_line = line.decode('utf-8')
-                    print(decoded_line, end='')  # Optional: print to console
-                    output_file.write(decoded_line.replace('\\r\\n', '\n').replace("\'", "'"))  # Write to file with standardized line endings
+                    print(decoded_line, end='')
+                    output_file.write(decoded_line.replace('\\r\\n', '\n').replace("\'", "'"))
             except KeyboardInterrupt:
                 break    
             
